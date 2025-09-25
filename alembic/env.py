@@ -1,4 +1,4 @@
-from database import SQLALCHEMY_DB_URL, metaData
+from app.database import SQLALCHEMY_DB_URL, metaData
 
 from logging.config import fileConfig
 

@@ -4,11 +4,11 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
-from database import get_db_context
-from schemas.task import Task
-from schemas.user import User
-from models.task import TaskCreate, TaskViewModel, TaskUpdate
-from services import auth as auth_service
+from app.database import get_db_context
+from app.schemas.task import Task
+from app.schemas.user import User
+from app.models.task import TaskCreate, TaskViewModel, TaskUpdate
+from app.services import auth as auth_service
 
 router = APIRouter(prefix="/tasks", tags=["Tasks"])
 

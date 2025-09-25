@@ -1,11 +1,11 @@
 from typing import List, Optional
 from uuid import UUID
-from database import get_db_context
+from app.database import get_db_context
 from fastapi import APIRouter, Depends, HTTPException
-from models.company import CompanyCreate, CompanyUpdate, CompanyViewModel
-from schemas.company import Company
-from schemas.user import User
-from services import auth as auth_service
+from app.models.company import CompanyCreate, CompanyUpdate, CompanyViewModel
+from app.schemas.company import Company
+from app.schemas.user import User
+from app.services import auth as auth_service
 from starlette import status
 from sqlalchemy.orm import Session
 

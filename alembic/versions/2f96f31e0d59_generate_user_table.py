@@ -11,8 +11,8 @@ from uuid import uuid4
 from alembic import op
 import sqlalchemy as sa
 
-from settings import ADMIN_DEFAULT_PASSWORD
-from schemas.user import hash_password
+from app.settings import ADMIN_DEFAULT_PASSWORD
+from app.schemas.user import hash_password
 
 
 # revision identifiers, used by Alembic.

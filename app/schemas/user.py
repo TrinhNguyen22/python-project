@@ -2,8 +2,8 @@ from passlib.context import CryptContext
 from sqlalchemy import Boolean, Column, ForeignKey, String, Uuid
 from sqlalchemy.orm import relationship
 
-from database import Base
-from schemas.base_entity import BaseEntity
+from app.database import Base
+from app.schemas.base_entity import BaseEntity
 
 pwd_context = CryptContext(schemes=['bcrypt'])
 

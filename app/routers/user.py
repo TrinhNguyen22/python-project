@@ -1,13 +1,13 @@
 from typing import List
 from uuid import UUID
 
-from models.user import UserCreate, UserUpdate, UserViewModel
-from database import get_db_context
+from app.models.user import UserCreate, UserUpdate, UserViewModel
+from app.database import get_db_context
 from fastapi import APIRouter, Depends, HTTPException
-from schemas.user import User, hash_password
+from app.schemas.user import User, hash_password
 from starlette import status
 from sqlalchemy.orm import Session
-from services import auth as auth_service
+from app.services import auth as auth_service
 
 router = APIRouter(prefix='/users', tags=['Users'])
 

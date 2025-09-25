@@ -6,10 +6,10 @@ from uuid import UUID
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from database import get_db_context
-from settings import JWT_ALGORITHM, JWT_SECRET
+from app.database import get_db_context
+from app.settings import JWT_ALGORITHM, JWT_SECRET
 from sqlalchemy.orm import Session
-from schemas.user import User, verify_password
+from app.schemas.user import User, verify_password
 from jose import JWTError, jwt
 
 
