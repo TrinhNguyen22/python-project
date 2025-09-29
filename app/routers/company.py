@@ -44,11 +44,16 @@ async def create_company(
     db: Session = Depends(get_db_context),
     user: User = Depends(auth_service.token_interceptor)
 ) -> CompanyViewModel:
-    db_obj = Company(**company_in.dict())
-    db.add(db_obj)
+    db_company = Company(
+        name=company_in.name,
+        description=company_in.description,
+        mode=company_in.mode,
+        rating=company_in.rating
+    )
+    db.add(db_company)
     db.commit()
-    db.refresh(db_obj)
-    return db_obj
+    db.refresh(db_company)
+    return db_company
 
 
 @router.put("/{company_id}", response_model=CompanyViewModel,

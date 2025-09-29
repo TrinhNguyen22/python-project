@@ -1,0 +1,36 @@
+version: "3.10"
+
+services:
+  db_test:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fastapi_db
+    ports:
+      - "5433:5432"           # expose for local debugging if needed
+    networks:
+      - fastapi_test_net
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pytest:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      TEST_DATABASE_URL: postgresql+psycopg2://postgres:postgres@db_test:5433/fastapi_db
+      # If you use Alembic migrations:
+      # DATABASE_URL: postgresql+psycopg2://postgres:postgres@db_test:5433/fastapi_db
+    depends_on:
+      db_test:
+        condition: service_healthy
+    networks:
+      - fastapi_test_net
+
+networks:
+  fastapi_test_net:
+    driver: bridge

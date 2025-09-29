@@ -1,4 +1,5 @@
-from app.database import SQLALCHEMY_DB_URL, metaData
+import os
+from app.database import SQLALCHEMY_DB_URL, Base
 
 from logging.config import fileConfig
 
@@ -20,10 +21,18 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = metaData
+# target_metadata = metaData
+target_metadata = Base.metadata
 
 # DB Connection String Configuration
-config.set_main_option('sqlalchemy.url', SQLALCHEMY_DB_URL)
+# config.set_main_option('sqlalchemy.url', SQLALCHEMY_DB_URL)
+
+url = (
+    os.getenv("TEST_DATABASE_URL")
+    or SQLALCHEMY_DB_URL
+)
+
+config.set_main_option("sqlalchemy.url", url)
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
