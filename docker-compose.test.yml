@@ -23,8 +23,6 @@ services:
       dockerfile: Dockerfile.test
     environment:
       TEST_DATABASE_URL: postgresql+psycopg2://postgres:postgres@db_test:5433/fastapi_db
-      # If you use Alembic migrations:
-      # DATABASE_URL: postgresql+psycopg2://postgres:postgres@db_test:5433/fastapi_db
     depends_on:
       db_test:
         condition: service_healthy

@@ -32,15 +32,3 @@ def test_update_task(client: TestClient, admin_token, created_task):
     body = r.json()
     assert body["status"] == update_data["status"]
     assert body["priority"] == update_data["priority"]
-
-
-# def test_delete_task(
-#     client: TestClient,
-#     admin_token,
-#     create_task_to_be_deleted
-# ):
-#     r = client.delete(
-#         f"/tasks/{create_task_to_be_deleted['id']}",
-#         headers={"Authorization": f"Bearer {admin_token}"}
-#     )
-#     assert r.status_code == 204

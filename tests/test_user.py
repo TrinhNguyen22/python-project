@@ -31,15 +31,3 @@ def test_update_user(client: TestClient, admin_token, created_user):
     body = r.json()
     assert body["first_name"] == update_data["first_name"]
     assert body["last_name"] == update_data["last_name"]
-
-
-# def test_delete_user(
-#     client: TestClient,
-#     admin_token,
-#     create_user_to_be_deleted
-# ):
-#     r = client.delete(
-#         f"/users/{create_user_to_be_deleted['id']}",
-#         headers={"Authorization": f"Bearer {admin_token}"}
-#     )
-#     assert r.status_code == 204

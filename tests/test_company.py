@@ -34,17 +34,6 @@ def test_update_company(client: TestClient, admin_token, created_company):
     assert company["rating"] == update_data["rating"]
 
 
-# def test_delete_company(
-#     client: TestClient,
-#     admin_token,
-#     create_company_to_be_deleted
-# ):
-#     r = client.delete(
-#         f"/companies/{create_company_to_be_deleted['id']}",
-#         headers={"Authorization": f"Bearer {admin_token}"}
-#     )
-#     assert r.status_code == 204
-
 def test_delete_company(
     client: TestClient,
     admin_token,
