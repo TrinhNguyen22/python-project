@@ -10,8 +10,6 @@ def get_db_connection():
     username = os.environ.get('DB_USERNAME')
     password = os.environ.get('DB_PASSWORD')
     name = os.environ.get('DB_NAME')
-    # return f'{engine}://{username}:{password}@{host}/{name}'
-    # DB connection test
     port = os.environ.get('DB_PORT')
     return f'{engine}://{username}:{password}@{host}:{port}/{name}'
 
