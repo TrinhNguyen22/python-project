@@ -93,6 +93,14 @@ Ensure target_metadata points to your Base metadata (e.g., from app.db.base impo
 
 ![Data tables](img/data-tables.png)
 
+### Unit test
+
+Run unit test:
+
+```bash
+pytest --maxfail=1 --disable-warnings -s -v
+```
+
 ## API Endpoints Overview
 
 | Method | Path                         | Description                                   |
