@@ -26,7 +26,7 @@ def upgrade() -> None:
         sa.Column('summary', sa.String),
         sa.Column('description', sa.String),
         sa.Column('status', sa.String),
-        sa.Column('priority', sa.String)
+        sa.Column('priority', sa.Integer)
     )
 
 

@@ -101,6 +101,13 @@ Run unit test:
 pytest --maxfail=1 --disable-warnings -s -v
 ```
 
+To run unit tests inside Docker, use the following command:
+```bash
+docker compose -f docker-compose.test.yml up -d
+pytest
+docker compose -f docker-compose.test.yml down -v
+```
+
 ## API Endpoints Overview
 
 | Method | Path                         | Description                                   |
